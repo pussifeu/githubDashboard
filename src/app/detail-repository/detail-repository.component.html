@@ -1,0 +1,27 @@
+<mat-card class="git-card">
+    <a href="{{oRepos?.owner.html_url}}">
+        <img src="{{oRepos?.owner.avatar_url}}" mat-card-avatar alt="image caption"/>
+        <mat-card-title>
+            <mat-card-subtitle>{{oRepos?.owner.login}}</mat-card-subtitle>
+        </mat-card-title>
+    </a>
+    <mat-card-actions layout="row" layout-align="start center">
+    </mat-card-actions>
+    <mat-card-title>
+        <mat-card-subtitle>
+            <a href="{{oRepos?.owner.html_url}}/{{oRepos?.name}}">{{oRepos?.owner.html_url}}/{{oRepos?.name}}</a>
+        </mat-card-subtitle>
+        <p></p>
+        <mat-card-subtitle>Repository : {{oRepos?.name}}</mat-card-subtitle>
+        <mat-card-subtitle *ngIf="oRepos?.language != null">Language : {{oRepos?.language}}</mat-card-subtitle>
+        <mat-card-subtitle>Stars : {{oRepos?.stargazers_count}}</mat-card-subtitle>
+        <mat-card-subtitle>Creation date : {{oRepos?.created_at | date: 'dd/MM/yyyy HH:mm:ss'}}</mat-card-subtitle>
+        <mat-card-subtitle>Update date : {{oRepos?.updated_at | date: 'dd/MM/yyyy HH:mm:ss'}}</mat-card-subtitle>
+    </mat-card-title>
+    <mat-card-actions layout="row" layout-align="start center">
+    </mat-card-actions>
+    <mat-card-content>
+        {{oRepos?.description}}
+    </mat-card-content>
+</mat-card>
+<mat-divider></mat-divider>

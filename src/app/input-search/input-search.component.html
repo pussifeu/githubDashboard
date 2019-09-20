@@ -1,0 +1,10 @@
+<form style="margin-top:200px" [formGroup]="form">
+    <mat-form-field>
+        <input matInput placeholder="Username" formControlName="username" required>
+        <mat-error *ngIf="form.value.username == ''">{{getErrorMessage()}}</mat-error>
+    </mat-form-field>
+    &nbsp;
+    <button mat-button matSuffix mat-stroked-button color="primary" aria-label="search" (click)="searchFunction()">
+        SEARCH
+    </button>
+</form>

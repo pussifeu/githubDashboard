@@ -1,0 +1,27 @@
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+body {
+  margin: 0%;
+}
+
+.mat-toolbar {
+  height: 7vh;
+}
+
+div {
+  overflow: inherit;
+}
+
+.mat-sidenav-container {
+  background-color: dodgerblue;
+  min-height: 93vh !important;
+}
+
+a {
+  text-decoration: none;
+  white-space: normal;
+}
+
+.mat-sidenav-content {
+  font-size: 100%;
+  text-align: center;
+}
