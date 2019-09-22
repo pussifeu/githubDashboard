@@ -12,10 +12,11 @@ import {
     MatIconModule, MatButtonModule, MatSidenavModule,
     MatToolbarModule, MatInputModule, MatListModule, MatCardModule
 } from '@angular/material';
+import {HttpClientModule} from '@angular/common/http';
+
 import {InputSearchComponent} from './input-search/input-search.component';
 import {ListInfoGitHubComponent} from './list-info-git-hub/list-info-git-hub.component';
 import {HomeComponent} from './home/home.component';
-import {HttpClientModule} from '@angular/common/http';
 import {DetailRepositoryComponent} from './detail-repository/detail-repository.component';
 
 
