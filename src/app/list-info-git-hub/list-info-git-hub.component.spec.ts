@@ -1,7 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { ListInfoGitHubComponent } from './list-info-git-hub.component';
 import {CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
+import {HttpClientModule} from '@angular/common/http';
+import {RouterModule} from '@angular/router';
 
 describe('ListInfoGitHubComponent', () => {
   let component: ListInfoGitHubComponent;
@@ -10,7 +11,11 @@ describe('ListInfoGitHubComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ ListInfoGitHubComponent ],
-      schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
+      schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
+      imports: [
+        HttpClientModule,
+        RouterModule.forRoot([])
+      ]
     })
     .compileComponents();
   }));
