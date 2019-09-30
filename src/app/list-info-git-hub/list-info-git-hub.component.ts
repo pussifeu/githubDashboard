@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {GitHubDashboardService} from '../services/git-hub-dashboard.service';
 import {ActivatedRoute, Router} from '@angular/router';
+import { Observable } from 'rxjs';
+import { shareReplay } from 'rxjs/operators';
 
 @Component({
     selector: 'app-list-info-git-hub',
@@ -8,8 +10,8 @@ import {ActivatedRoute, Router} from '@angular/router';
     styleUrls: ['./list-info-git-hub.component.scss']
 })
 export class ListInfoGitHubComponent implements OnInit {
-    reposItems: any;
-    userInfos: any;
+    reposItems$: Observable<any>;
+    userInfos$: Observable<any>;
 
     constructor(private gitHubDashboardService: GitHubDashboardService,
                 private route: ActivatedRoute,
@@ -17,29 +19,8 @@ export class ListInfoGitHubComponent implements OnInit {
     }
 
     ngOnInit() {
-        this.getListProjectGit(this.route.snapshot.queryParams.username);
-        this.getUserInfoGit(this.route.snapshot.queryParams.username);
-    }
-
-
-    getListProjectGit(user: any) {
-        this.gitHubDashboardService.aGetReposByUser(user).subscribe(
-            (res: Response) => {
-                this.reposItems = res;
-            },
-            (error: any) => {
-                this.reposItems = [];
-            });
-    }
-
-    getUserInfoGit(user: any) {
-        this.gitHubDashboardService.aGetInfoByUser(user).subscribe(
-            (res: Response) => {
-                this.userInfos = res;
-            },
-            (error: any) => {
-                this.userInfos = [];
-            });
+        this.reposItems$ = this.gitHubDashboardService.aGetReposByUser(this.route.snapshot.queryParams.username);
+        this.userInfos$ = this.gitHubDashboardService.aGetInfoByUser(this.route.snapshot.queryParams.username);
     }
 
     getDetailItemRepository(itemData: any) {
