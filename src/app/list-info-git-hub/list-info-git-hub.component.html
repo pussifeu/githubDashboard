@@ -1,12 +1,12 @@
-<div *ngIf="(userInfos && reposItems?.length > 0)">
-    <mat-card class="git-card">
-        <img mat-card-avatar src="{{userInfos?.avatar_url}}" alt=""/>
-        <mat-card-title>{{userInfos?.name}}</mat-card-title>
-        <mat-card-subtitle>{{userInfos?.login}}</mat-card-subtitle>
+<div>
+    <mat-card class="git-card" *ngIf="(userInfos$ | async) as userInfos">
+        <img mat-card-avatar src="{{userInfos.avatar_url}}" alt=""/>
+        <mat-card-title>{{userInfos.name}}</mat-card-title>
+        <mat-card-subtitle>{{userInfos.login}}</mat-card-subtitle>
     </mat-card>
     <mat-divider></mat-divider>
     <mat-nav-list>
-        <mat-list-item *ngFor="let item of reposItems" (click)="getDetailItemRepository(item)">
+        <mat-list-item *ngFor="let item of reposItems$ | async" (click)="getDetailItemRepository(item)">
             <mat-icon mat-list-icon>folder</mat-icon>
             <p mat-line> {{item.name}} </p>
             <mat-divider></mat-divider>
