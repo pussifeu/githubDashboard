@@ -16,7 +16,7 @@ export class DetailRepositoryComponent implements OnInit {
         this.getReposByUserAndName(this.route.snapshot.queryParams.owner, this.route.snapshot.queryParams.name);
     }
 
-    getReposByUserAndName(user: any, repos) {
+    getReposByUserAndName(user: any, repos: any) {
         this.gitHubDashboardService.aGetReposByUserAndName(user, repos).subscribe(
             (res: Response) => {
                 this.oRepos = res;
