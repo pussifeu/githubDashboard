@@ -1,6 +1,7 @@
 {
   "extends": "tslint:recommended",
   "rules": {
+    "typedef" : [true, "parameter"],
     "array-type": false,
     "arrow-parens": false,
     "deprecation": {
