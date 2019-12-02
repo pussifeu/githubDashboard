@@ -19,14 +19,8 @@ export class HomeComponent implements OnInit {
 
     displayResults(event: any) {
         this.value = event;
-        const navigationExtras = {
-            queryParams: {
-                username: this.value.username,
-                parent_page: 'home'
-            }
-        };
         if (this.value.username !== '') {
-            this.router.navigate(['list-infos-git-hub'], navigationExtras);
+            this.router.navigate(['list-infos-git-hub/'+this.value.username]);
         }
     }
 
