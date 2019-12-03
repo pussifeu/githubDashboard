@@ -1,6 +1,5 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
-import {GitHubDashboardService} from '../services/git-hub-dashboard.service';
 import {Observable} from 'rxjs';
 
 @Component({
@@ -9,16 +8,11 @@ import {Observable} from 'rxjs';
     styleUrls: ['./detail-repository.component.scss']
 })
 export class DetailRepositoryComponent implements OnInit {
-    oRepos$: Observable<any>;
-
-    constructor(private route: ActivatedRoute, private gitHubDashboardService: GitHubDashboardService) {
+    oRepos: any;
+    constructor(private activatedRoute: ActivatedRoute) {
     }
 
     ngOnInit() {
-        /* Observable qui s'abonne au service, et utilise directement async pipe in the components */
-        this.oRepos$ = this.gitHubDashboardService.aGetReposByUserAndName(
-            this.route.snapshot.queryParams.owner,
-            this.route.snapshot.queryParams.name
-        );
+        this.oRepos = this.activatedRoute.snapshot.data.resolverData;
     }
 }

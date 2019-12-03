@@ -18,6 +18,7 @@ import {InputSearchComponent} from './input-search/input-search.component';
 import {ListInfoGitHubComponent} from './list-info-git-hub/list-info-git-hub.component';
 import {HomeComponent} from './home/home.component';
 import {DetailRepositoryComponent} from './detail-repository/detail-repository.component';
+import { LoginComponent } from './login/login.component';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import {DetailRepositoryComponent} from './detail-repository/detail-repository.c
         InputSearchComponent,
         ListInfoGitHubComponent,
         HomeComponent,
-        DetailRepositoryComponent
+        DetailRepositoryComponent,
+        LoginComponent
     ],
     imports: [
         BrowserModule,

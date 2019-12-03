@@ -11,7 +11,7 @@ export class GitHubDashboardService {
     constructor(private httpClient: HttpClient) {
     }
 
-    aGetReposByUser(user: any) {
+    aGetReposByUser(user: any) : Observable<any> {
         return this.httpClient.get(`${this.baseUrl}/users/${user}/repos`);
     }
 

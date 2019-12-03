@@ -1,4 +1,4 @@
-<mat-card class="git-card" *ngIf="oRepos$ | async as oRepos">
+<mat-card class="git-card">
     <a href="{{oRepos.owner.html_url}}">
         <img src="{{oRepos.owner.avatar_url}}" mat-card-avatar alt="image caption"/>
         <mat-card-title>

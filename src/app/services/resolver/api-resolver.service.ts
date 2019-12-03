@@ -3,7 +3,6 @@ import { Resolve, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/r
 import { Observable, forkJoin, } from 'rxjs';
 import { GitHubDashboardService } from '../git-hub-dashboard.service';
 import { map } from 'rxjs/operators';
-import { UserModel } from 'src/app/models/userModel';
 
 @Injectable({
   providedIn: 'root'

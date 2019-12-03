@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { GitHubDashboardService } from '../services/git-hub-dashboard.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
-import { shareReplay } from 'rxjs/operators';
 import { UserModel } from '../models/userModel';
 
 @Component({
@@ -14,26 +12,19 @@ export class ListInfoGitHubComponent implements OnInit {
     reposItems$: Observable<any>;
     userInfos$: Observable<Array<UserModel>>;
 
-    constructor(private gitHubDashboardService: GitHubDashboardService,
-        private route: ActivatedRoute,
+    constructor(
+        private activatedRoute: ActivatedRoute,
         private router: Router) {
     }
 
     ngOnInit() {
-        this.userInfos$ = this.route.snapshot.data.resolverData.userInfos;
-        this.reposItems$ = this.route.snapshot.data.resolverData.reposItems;
+        this.userInfos$ = this.activatedRoute.snapshot.data.resolverData.userInfos;
+        this.reposItems$ = this.activatedRoute.snapshot.data.resolverData.reposItems;
     }
 
     getDetailItemRepository(itemData: any) {
-        const navigationExtras = {
-            queryParams: {
-                name: itemData.name,
-                owner: itemData.owner.login,
-                parent_page: 'list'
-            }
-        };
         if (itemData !== '') {
-            this.router.navigate(['detail-repository'], navigationExtras);
+            this.router.navigate([`detail-repository/${itemData.owner.login}/${itemData.name}`]);
         }
     }
 }

@@ -20,7 +20,7 @@ export class HomeComponent implements OnInit {
     displayResults(event: any) {
         this.value = event;
         if (this.value.username !== '') {
-            this.router.navigate(['list-infos-git-hub/'+this.value.username]);
+            this.router.navigate([`list-infos-git-hub/${this.value.username}`]);
         }
     }
 
